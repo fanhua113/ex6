@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>丰子恺的四季诗画</title>
+
+	</head>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			background-image: url("picture/Main page/main page.jpg");
+			background-position: center top;
+			background-repeat: no-repeat;
+			background-size:88%;
+		}	
+		.content{
+			position:fixed;
+			top:80%;
+			left:48%;
+		}
+		.book{
+			
+		}
+		.tubiao{
+			width: 80px;
+			height: 60px;
+			cursor: pointer;
+			position: fixed;
+			top: 2%;
+			right: 6%;
+		}
+		.tubiao1,.tubiao2{
+			width: 80px;
+			height: 60px;
+			position: fixed;
+			top: 2%;
+			right: 6%;
+		}
+		.tubiao1{
+			background: url("picture/other/Button/music.png") 50% 50% no-repeat;
+			background-size: 80px 60px;
+		}
+		.tubiao2{
+			background: url("picture/other/Button/Music Pause.png") 50% 50% no-repeat;
+			background-size: 75px 65px;
+			animation: TuBiao 3s linear infinite;
+		}
+		@keyframes TuBiao{
+			0%{transform: rotate(0deg);}
+			50%{transform: rotate(180deg);}
+			100%{transform: rotate(360deg);}
+		}
+		
+	</style>
+	<body>
+		<div class="content">
+			<a href="index.html">打开书本</a>
+		</div>
+		
+		<div class="tubiao" id="tb">
+				<div class="tubiao1" id="tb1"></div>
+				<div class="tubiao2" id="tb2" style="display: none;"></div>
+		</div>
+		<video src="BGM/mainpage.mp3" loop preload="auto" id="music"></video>
+		<script type="text/javascript">
+			var number=true;
+			var music=document.getElementById("music");
+			var tb=document.getElementById("tb");
+			
+			tb.onclick=function(){
+					if(number===false){
+						 number=true;
+						document.getElementById("tb1").style.display="block";
+						document.getElementById("tb2").style.display="none";
+					
+						music.pause();
+						 
+					}else{
+						document.getElementById("tb1").style.display="none";
+						document.getElementById("tb2").style.display="block";
+						number=false;
+						music.play();
+					}
+				};
+			
+		</script>
+			
+		
+	</body>
+</html>
